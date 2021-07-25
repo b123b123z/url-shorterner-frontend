@@ -13,8 +13,6 @@ const fadeIn = keyframes`
 `;
 
 const Home = () => {
-  const API_URL = 'http://url-shorterner-server.herokuapp.com';
-
   const [longUrl, setLongUrl] = useState();
   const [shortUrl, setShortUrl] = useState();
 
@@ -38,7 +36,7 @@ const Home = () => {
       {shortUrl && (
         <p>
           your shortened url is
-          {`${API_URL}/${shortUrl}`}
+          {shortUrl}
         </p>
       )}
     </Wrapper>
