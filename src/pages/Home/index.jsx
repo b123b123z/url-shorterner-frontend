@@ -33,18 +33,27 @@ const Home = () => {
     })();
   }, [longUrl]);
 
+  let feedback = null;
+
+  if (shortUrl) {
+    feedback = (
+      <Text>
+        Your shortened URL is:
+        <br />
+        {shortUrl}
+      </Text>
+    );
+  }
+
+  if (hasError) {
+    feedback = <Text>Opps ❌ Something wrong happened, please double check your URL!</Text>;
+  }
+
   return (
     <Wrapper>
       <WelcomeText>Welcome! 👋</WelcomeText>
       <UrlForm setLongUrl={setLongUrl} />
-      {shortUrl && (
-        <Text>
-          Your shortened URL is:
-          <br />
-          {shortUrl}
-        </Text>
-      )}
-      {hasError && <Text>Opps ❌ Something wrong happened, please enter the full URL!</Text>}
+      {feedback}
     </Wrapper>
   );
 };
