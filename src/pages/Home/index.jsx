@@ -15,15 +15,19 @@ const fadeIn = keyframes`
 const Home = () => {
   const [longUrl, setLongUrl] = useState();
   const [shortUrl, setShortUrl] = useState();
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     (async () => {
+      setHasError(false);
+
       if (longUrl) {
         try {
           const res = await getRedirectUrl(longUrl);
           setShortUrl(res.data);
         } catch (e) {
           console.log(e);
+          setHasError(true);
         }
       }
     })();
@@ -34,11 +38,13 @@ const Home = () => {
       <WelcomeText>Welcome! 👋</WelcomeText>
       <UrlForm setLongUrl={setLongUrl} />
       {shortUrl && (
-        <p>
-          your shortened url is
+        <Text>
+          Your shortened URL is:
+          <br />
           {shortUrl}
-        </p>
+        </Text>
       )}
+      {hasError && <Text>Opps ❌ Something wrong happened, please enter the full URL!</Text>}
     </Wrapper>
   );
 };
@@ -53,11 +59,17 @@ const Wrapper = styled.div`
   animation-delay: 700ms;
   animation-name: ${fadeIn};
   animation-fill-mode: forwards;
+  font-family: 'Open Sans', sans-serif;
 `;
 
 const WelcomeText = styled.div`
-  font-family: 'Open Sans', sans-serif;
   font-size: 50px;
+`;
+
+const Text = styled.div`
+  margin-top: 30px;
+  font-size: 15px;
+  text-align: center;
 `;
 
 export default Home;

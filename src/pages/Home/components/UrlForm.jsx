@@ -37,12 +37,11 @@ const FormContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 70%;
+  width: 700px;
 `;
 
 const ButtonContainer = styled.div`
   margin-top: 30px;
-  width: 30%;
 `;
 
 export default UrlForm;
