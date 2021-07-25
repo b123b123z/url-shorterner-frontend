@@ -1,8 +1,5 @@
 import ApiClient from '../../../api/ApiClient';
 
-const getRedirectUrl = async (longUrl) => {
-  return await ApiClient.post('/urls', {longUrl: longUrl});
-
-};
+const getRedirectUrl = (longUrl) => ApiClient.post('/urls', { longUrl });
 
 export default getRedirectUrl;
