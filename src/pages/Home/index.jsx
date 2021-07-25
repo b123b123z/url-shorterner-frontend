@@ -56,7 +56,7 @@ const Wrapper = styled.div`
   align-items: center;
   margin-top: 10%;
   animation-duration: 7000ms;
-  animation-delay: 100ms;
+  animation-delay: 0ms;
   animation-name: ${fadeIn};
   animation-fill-mode: forwards;
   font-family: 'Open Sans', sans-serif;
