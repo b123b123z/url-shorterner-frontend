@@ -33,34 +33,31 @@ const Home = () => {
 
   return (
     <Wrapper>
-      <WelcomeText>
-        Welcome! 👋
-      </WelcomeText>
+      <WelcomeText>Welcome! 👋</WelcomeText>
       <UrlForm setLongUrl={setLongUrl} />
       {shortUrl && (
-      <p>
-        your shortened url is
-        {`${API_URL}/${shortUrl}`}
-      </p>
+        <p>
+          your shortened url is
+          {`${API_URL}/${shortUrl}`}
+        </p>
       )}
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10%;
-    animation-duration: 7000ms;
-    animation-delay: 700ms;
-    animation-name: ${fadeIn};
-    animation-fill-mode: forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  animation-duration: 7000ms;
+  animation-delay: 700ms;
+  animation-name: ${fadeIn};
+  animation-fill-mode: forwards;
 `;
 
 const WelcomeText = styled.div`
-
   font-family: 'Open Sans', sans-serif;
   font-size: 50px;
 `;

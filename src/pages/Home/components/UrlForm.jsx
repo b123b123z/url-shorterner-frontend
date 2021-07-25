@@ -20,32 +20,29 @@ const UrlForm = (props) => {
     <FormContainer>
       <FormControl fullWidth variant="outlined">
         <InputLabel htmlFor="outlined-adornment-amount">URL</InputLabel>
-        <OutlinedInput
-          id="outlined-adornment-amount"
-          labelWidth={60}
-          onChange={handleChange}
-        />
+        <OutlinedInput id="outlined-adornment-amount" labelWidth={60} onChange={handleChange} />
       </FormControl>
       <ButtonContainer>
-        <Button variant="outlined" color="primary" onClick={handleClick}>Generate short URL</Button>
+        <Button variant="outlined" color="primary" onClick={handleClick}>
+          Generate short URL
+        </Button>
       </ButtonContainer>
     </FormContainer>
   );
 };
 
 const FormContainer = styled.div`
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
 `;
 
 const ButtonContainer = styled.div`
-
-    margin-top: 30px;
-    width: 30%;
+  margin-top: 30px;
+  width: 30%;
 `;
 
 export default UrlForm;
