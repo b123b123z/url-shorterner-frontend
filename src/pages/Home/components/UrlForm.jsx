@@ -13,6 +13,10 @@ const UrlForm = (props) => {
   };
 
   const handleClick = () => {
+    if (!longUrl || longUrl.length < 1) {
+      props.setHasError(true);
+      return;
+    }
     props.setLongUrl(longUrl);
   };
 

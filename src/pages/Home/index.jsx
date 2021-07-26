@@ -61,7 +61,7 @@ const Home = () => {
   return (
     <Wrapper>
       <WelcomeText>Welcome! 👋</WelcomeText>
-      <UrlForm setLongUrl={setLongUrl} />
+      <UrlForm setLongUrl={setLongUrl} setHasError={setHasError} />
       {feedback}
     </Wrapper>
   );
