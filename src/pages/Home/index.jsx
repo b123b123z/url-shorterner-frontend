@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import UrlForm from './components/UrlForm';
 import getRedirectUrl from './api/HomeApi';
 
@@ -16,10 +17,12 @@ const Home = () => {
   const [longUrl, setLongUrl] = useState();
   const [shortUrl, setShortUrl] = useState();
   const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     (async () => {
       setHasError(false);
+      setIsLoading(true);
 
       if (longUrl) {
         try {
@@ -28,6 +31,8 @@ const Home = () => {
         } catch (e) {
           console.log(e);
           setHasError(true);
+        } finally {
+          setIsLoading(false);
         }
       }
     })();
@@ -47,6 +52,10 @@ const Home = () => {
 
   if (hasError) {
     feedback = <Text>Opps ❌ Something wrong happened, please double check your URL!</Text>;
+  }
+
+  if (isLoading) {
+    feedback = <CircularProgress />;
   }
 
   return (
