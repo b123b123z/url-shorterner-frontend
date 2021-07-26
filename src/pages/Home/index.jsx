@@ -22,10 +22,10 @@ const Home = () => {
   useEffect(() => {
     (async () => {
       setHasError(false);
-      setIsLoading(true);
 
       if (longUrl) {
         try {
+          setIsLoading(true);
           const res = await getRedirectUrl(longUrl);
           setShortUrl(res.data);
         } catch (e) {
@@ -55,7 +55,7 @@ const Home = () => {
   }
 
   if (isLoading) {
-    feedback = <CircularProgress />;
+    feedback = <CircularProgress style={{ marginTop: '20px' }} />;
   }
 
   return (
